@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Foat from './Foat.js'
 import BigFoat from './BigFoat.js'
 import elrab from './Elrab.js'
+import * as Animatable from 'react-native-animatable';
+
 const Stack = createNativeStackNavigator();
 import {
   Text,
@@ -20,7 +22,10 @@ const { width, height } = Dimensions.get('window');
 function Drink() {
   const [activeTab, setActiveTab] = useState("الفوط الكبيرة")
   return (
-    <View style={{ flex: 1, backgroundColor: '#141E46', }}>
+    <Animatable.View
+      // animation="rubberBand"
+      // duration={5000}
+      style={{ flex: 1, backgroundColor: '#141E46', }}>
       <View style={styles.headerbar}>
         <Text style={styles.textheader}>
           الفوط
@@ -56,7 +61,7 @@ function Drink() {
         )
         }
       </ScrollView>
-    </View>
+    </Animatable.View>
   );
 }
 const HeaderButton = (props) => (
@@ -70,8 +75,8 @@ const HeaderButton = (props) => (
     }}
       onPress={() => { props.setActiveTab(props.text) }}>
       <Text
-        style={{          
-            fontFamily: "ReemKufiFun-Bold",
+        style={{
+          fontFamily: "ReemKufiFun-Bold",
 
           color: props.activeTab == props.text ? "#141E46" : "#fff",
           fontSize: 15,
@@ -114,18 +119,18 @@ const styles = StyleSheet.create({
 });
 function Second() {
   return (
-      <Stack.Navigator>
-                <Stack.Screen name="Drink" component={Drink} 
-        options={{headerShown:false}}/>
-        <Stack.Screen name="BigFoat" component={BigFoat} 
-        options={{headerShown:false}}/>
+    <Stack.Navigator>
+      <Stack.Screen name="Drink" component={Drink}
+        options={{ headerShown: false }} />
+      <Stack.Screen name="BigFoat" component={BigFoat}
+        options={{ headerShown: false }} />
 
-        <Stack.Screen name="Foat" component={Foat} 
-        options={{headerShown:false}}/>
-                <Stack.Screen name="elrab" component={elrab} 
-        options={{headerShown:false}}/>
+      <Stack.Screen name="Foat" component={Foat}
+        options={{ headerShown: false }} />
+      <Stack.Screen name="elrab" component={elrab}
+        options={{ headerShown: false }} />
 
-      </Stack.Navigator>
+    </Stack.Navigator>
   );
 }
 

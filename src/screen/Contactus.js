@@ -57,36 +57,51 @@ export default class Contactus extends React.Component {
                     backgroundColor={"#15133C20"}
                 />
 
-                <View style={styles.header}>
+                <Animatable.View
+
+                    style={styles.header}>
                     <View style={styles.ViewText}>
                         <Text style={styles.Text}>تواصل معنا</Text>
                     </View>
-                    <TouchableOpacity
-                        onPress={() => {
-                            Linking.openURL("tel:" + "+201096526436");
-                        }}
-                        style={styles.first}>
-                        <MaterialCommunityIcons name="phone" color={"#16294e"} size={60} />
+                    <Animatable.View
+                        animation="fadeIn"
+                        duration={5000}
 
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => {
+                        style={styles.first}>
+                        <TouchableOpacity
+                            onPress={() => {
+                                Linking.openURL("tel:" + "+201096526436");
+                            }}>
+                            <MaterialCommunityIcons name="phone" color={"#16294e"} size={60} />
+
+                        </TouchableOpacity>
+                    </Animatable.View>
+                    <Animatable.View
+                        animation="fadeIn"
+                        duration={5000}
+
+                        style={styles.first}>
+                        <TouchableOpacity onPress={() => {
                             Linking.openURL('https://www.facebook.com/profile.php?id=100090134973009&mibextid=LQQJ4d');
-                        }}
-                        style={styles.first}>
-                        <MaterialCommunityIcons name="facebook" color={"#28346f"} size={60} />
+                        }}>
+                            <MaterialCommunityIcons name="facebook" color={"#28346f"} size={60} />
+                        </TouchableOpacity>
+                    </Animatable.View>
+                    <Animatable.View
+                        animation="fadeIn"
+                        duration={5000}
 
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => {
-                            Linking.openURL('https://api.whatsapp.com/send?phone=201096526436');
-                        }}
                         style={styles.first}>
-                        <MaterialCommunityIcons name="whatsapp" color={"#0e8623"} size={60} />
+                        <TouchableOpacity
+                            onPress={() => {
+                                Linking.openURL('https://api.whatsapp.com/send?phone=201096526436');
+                            }}>
+                            <MaterialCommunityIcons name="whatsapp" color={"#0e8623"} size={60} />
 
-                    </TouchableOpacity>
+                        </TouchableOpacity>
+                    </Animatable.View>
                     <View></View>
-                </View>
+                </Animatable.View>
 
 
 

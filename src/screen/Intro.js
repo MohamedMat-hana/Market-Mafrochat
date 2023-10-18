@@ -14,7 +14,7 @@ import AppIntroSlider from 'react-native-app-intro-slider';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import { WelcomeMasssage } from '../../config/helperFunction';
 const { width, height } = Dimensions.get('window');
 
 export default class Intro extends React.Component {
@@ -103,6 +103,7 @@ export default class Intro extends React.Component {
                 onPress={() =>
                     //this.set_intro(1),
                     {
+                        this.WelcomeMasssage(),
                         // this.store_Count();
                         this.props.navigation.navigate("Drawarnav")
 
@@ -119,6 +120,8 @@ export default class Intro extends React.Component {
             onPress={() =>
                 //this.set_intro(1),
                 {
+                    WelcomeMasssage(),
+
                     // this.store_Count();
                     this.props.navigation.navigate("Drawarnav")
 

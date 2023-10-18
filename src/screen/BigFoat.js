@@ -18,8 +18,64 @@ const BigFoat = () => {
     const navigation = useNavigation();
 
     const map = [
- 
+
         {
+            title: "1فوطه",
+            image: require('../Img/bed8.jpg'),
+        },
+        {
+            title: "1فوطه",
+            image: require('../Img/bed9.jpg'),
+        },
+        {
+            title: "1فوطه",
+            image: require('../Img/bed10.jpg'),
+        },
+        {
+            title: "1فوطه",
+            image: require('../Img/bed8.jpg'),
+        },
+        {
+            title: "1فوطه",
+            image: require('../Img/bed9.jpg'),
+        },
+        {
+            title: "1فوطه",
+            image: require('../Img/bed10.jpg'),
+        }, {
+            title: "1فوطه",
+            image: require('../Img/bed8.jpg'),
+        },
+        {
+            title: "1فوطه",
+            image: require('../Img/bed9.jpg'),
+        },
+        {
+            title: "1فوطه",
+            image: require('../Img/bed10.jpg'),
+        }, {
+            title: "1فوطه",
+            image: require('../Img/bed8.jpg'),
+        },
+        {
+            title: "1فوطه",
+            image: require('../Img/bed9.jpg'),
+        },
+        {
+            title: "1فوطه",
+            image: require('../Img/bed10.jpg'),
+        }, {
+            title: "1فوطه",
+            image: require('../Img/bed8.jpg'),
+        },
+        {
+            title: "1فوطه",
+            image: require('../Img/bed9.jpg'),
+        },
+        {
+            title: "1فوطه",
+            image: require('../Img/bed10.jpg'),
+        }, {
             title: "1فوطه",
             image: require('../Img/bed8.jpg'),
         },
@@ -36,10 +92,14 @@ const BigFoat = () => {
     return (
         <>
             <StatusBar barStyle={'dark-content'} backgroundColor={"#15133C20"} />
-            <View style={styles.header}>
-                <View style={styles.first}>
-                    <ScrollView>
-                        <View
+            <ScrollView>
+                <View style={styles.header}>
+                    <View style={styles.first}>
+
+                        <Animatable.View
+                            animation="rubberBand"
+                            duration={5000}
+
                             style={{
                                 flexDirection: "row",
                                 flexWrap: "wrap",
@@ -58,7 +118,7 @@ const BigFoat = () => {
                                     style={styles.Button}
                                     key={index}
                                 >
-                                    <Animatable.Image
+                                    <Image
                                         animation="bounceIn"
                                         duration={6000}
                                         source={item.image}
@@ -67,11 +127,12 @@ const BigFoat = () => {
                                     <Text style={styles.Text}>{item.title}</Text>
                                 </TouchableOpacity>
                             ))}
-                        </View>
-                        <View style={{ height: 60 }}></View>
-                    </ScrollView>
+                        </Animatable.View>
+                    </View>
+                    <View style={{ height: 80 }}></View>
+
                 </View>
-            </View>
+            </ScrollView >
         </>
     );
 };
@@ -83,7 +144,7 @@ const styles = StyleSheet.create({
     },
     first: {
         width: width,
-        height: height,
+        // height: height,
         flexDirection: 'row',
         justifyContent: 'center',
         flexWrap: "wrap",

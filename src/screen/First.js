@@ -12,6 +12,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { BackHandler } from 'react-native';
 import * as Animatable from 'react-native-animatable';
+// import { WelcomeMasssage } from '../../config/helperFunction';
 
 const { width, height } = Dimensions.get('window');
 
@@ -48,16 +49,74 @@ const First = () => {
             title: "مفرش",
             image: require('../Img/bed14.jpg'),
         },
-        
+        {
+            title: "مفرش",
+            image: require('../Img/bed11.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed12.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed13.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed14.jpg'),
+        }, {
+            title: "مفرش",
+            image: require('../Img/bed11.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed12.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed13.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed14.jpg'),
+        }, {
+            title: "مفرش",
+            image: require('../Img/bed11.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed12.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed13.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed14.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed14.jpg'),
+        }, {
+            title: "مفرش",
+            image: require('../Img/bed14.jpg'),
+        }, {
+            title: "مفرش",
+            image: require('../Img/bed14.jpg'),
+        },
+
     ];
 
     return (
         <>
             <StatusBar barStyle={'dark-content'} backgroundColor={"#15133C20"} />
-            <View style={styles.header}>
-                <View style={styles.first}>
-                    <ScrollView>
-                        <View
+            <ScrollView>
+                <View style={styles.header}>
+                    <View style={styles.first}>
+                        <Animatable.View
+                            animation="tada"
+                            duration={4000}
                             style={{
                                 flexDirection: "row",
                                 flexWrap: "wrap",
@@ -66,10 +125,12 @@ const First = () => {
                                 justifyContent: "center",
                             }}
                         >
-                           {
+                            {
                                 map.map((item, index) => (
                                     <TouchableOpacity
                                         onPress={() => {
+                                            // WelcomeMasssage(),
+
                                             navigation.navigate("Elrab", {
                                                 name: item,
                                             });
@@ -78,8 +139,8 @@ const First = () => {
                                         key={index}
                                     >
                                         <Animatable.Image
-                                            animation="bounceIn"
-                                            duration={6000}
+                                            // animation="bounceIn"
+                                            // duration={6000}
                                             source={item.image}
                                             style={styles.image}
                                         />
@@ -87,11 +148,12 @@ const First = () => {
                                     </TouchableOpacity>
                                 ))
                             }
-                        </View>
-                        <View style={{ height: 60 }}></View>
-                    </ScrollView>
+                        </Animatable.View>
+                    </View>
+                    <View style={{ height: 80 }}></View>
+
                 </View>
-            </View>
+            </ScrollView >
         </>
     );
 };
@@ -103,7 +165,7 @@ const styles = StyleSheet.create({
     },
     first: {
         width: width,
-        height: height,
+        // height: height,
         flexDirection: 'row',
         justifyContent: 'center',
         flexWrap: "wrap",

@@ -33,7 +33,7 @@ const Bigmafro = () => {
     }, []);
 
     const map = [
-       
+
         {
             title: "مفرش",
             image: require('../Img/bed12.jpg'),
@@ -46,20 +46,90 @@ const Bigmafro = () => {
             title: "مفرش",
             image: require('../Img/bed14.jpg'),
         },
+        {
+            title: "مفرش",
+            image: require('../Img/bed12.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed13.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed14.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed12.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed13.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed14.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed12.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed13.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed14.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed14.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed12.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed13.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed14.jpg'),
+        },
+        {
+            title: "مفرش",
+            image: require('../Img/bed14.jpg'),
+        }, {
+            title: "مفرش",
+            image: require('../Img/bed14.jpg'),
+        }, {
+            title: "مفرش",
+            image: require('../Img/bed14.jpg'),
+        },
     ];
 
     return (
         <>
             <StatusBar barStyle={'dark-content'} backgroundColor={"#15133C20"} />
-            <View style={styles.header}>
-                <View style={styles.first}>
-                    <ScrollView>
-                        <View
+            <ScrollView >
+                <View style={styles.header}>
+                    <View style={styles.first}>
+
+                        {/* <View style={{
+                        height: height,
+                        backgroundColor:"#000"
+                    }}> */}
+                        <Animatable.View
+                            animation="rubberBand"
+                            duration={4000}
+
                             style={{
                                 flexDirection: "row",
                                 flexWrap: "wrap",
                                 alignItems: "center",
-                                alignSelf: "center",
+                                // alignSelf: "center",
                                 justifyContent: "center",
                             }}
                         >
@@ -74,9 +144,7 @@ const Bigmafro = () => {
                                         style={styles.Button}
                                         key={index}
                                     >
-                                        <Animatable.Image
-                                            animation="bounceIn"
-                                            duration={6000}
+                                        <Image
                                             source={item.image}
                                             style={styles.image}
                                         />
@@ -85,23 +153,26 @@ const Bigmafro = () => {
                                 ))
                             }
 
-                        </View>
-                        <View style={{ height: 60 }}></View>
-                    </ScrollView>
+                        </Animatable.View>
+                        {/* </View> */}
+                    </View>
+                    <View style={{ height: 80 }}></View>
+
                 </View>
-            </View>
+            </ScrollView >
+
         </>
     );
 };
 
 const styles = StyleSheet.create({
     header: {
-        flex: 1,
+        // flex: 1,
         backgroundColor: "#15133C20",
     },
     first: {
-        width: width,
-        height: height,
+        // width: width,
+        // height: height,
         flexDirection: 'row',
         justifyContent: 'center',
         flexWrap: "wrap",

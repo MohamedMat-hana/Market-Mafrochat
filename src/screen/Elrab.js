@@ -7,7 +7,7 @@ import {
     Image,
     StatusBar,
     BackHandler,
-     Dimensions,
+    Dimensions,
     Modal,
     ImageBackground
 } from 'react-native';
@@ -55,7 +55,7 @@ export default class Elrab extends React.Component {
 
 
 
- 
+
     render() {
         return (
             <>
@@ -64,60 +64,67 @@ export default class Elrab extends React.Component {
                     barStyle={'dark-content'}
                     backgroundColor={"#15133C20"}
                 />
-                <TouchableOpacity
-                style={{marginRight:10}}
-                    onPress={() => {
-                        this.props.navigation.goBack();
-                    }}
-
+                <Animatable.View
+                    animation="fadeInUpBig"
+                    duration={2000}
                 >
-                    <AntDesign name='arrowleft' size={30} color="#141E46" />
-                </TouchableOpacity>
-                <View
-                    style={{
-                        height: height,
-                        backgroundColor: "#FFF5E050",
-                        alignItems: 'center',
-                        justifyContent: "center",
-                        borderRadius: 5
+                    <TouchableOpacity
+                        style={{ 
+                            marginRight: 10 }}
+                        onPress={() => {
+                            this.props.navigation.goBack();
+                        }}
 
-                    }}>
-                    <ImageBackground source={this.state.item.image}
-                        resizeMode='contain'
+                    >
+                        <AntDesign name='arrowleft' size={30} color="#141E46" />
+                    </TouchableOpacity>
+                    <View
+
                         style={{
-                            height: height / 2,
-                            width: width / 1,
-                            alignSelf: "center",
-                            justifyContent: "center"
-                        }}>
-
-
-
-
-
-
-                    </ImageBackground>
-                    <Animatable.View
-                        animation='fadeIn'
-                        style={{
-                            alignItems: "center",
-                            justifyContent: 'center',
-                            alignSelf:"center",
-                            padding: 10,
-                            backgroundColor: "#141E46",
-                            borderRadius: 10,
-                            marginTop:10
+                            // marginTop:-30,
+                            height: height,
+                            backgroundColor: "#FFF5E050",
+                            alignItems: 'center',
+                            justifyContent: "center",
+                            borderRadius: 5
 
                         }}>
+                        <ImageBackground source={this.state.item.image}
+                            resizeMode='contain'
+                            style={{
+                                height: height / 2,
+                                width: width / 1,
+                                alignSelf: "center",
+                                justifyContent: "center"
+                            }}>
 
 
-                        <Text style={[styles.Text, { color: "#fff" }]}>{this.state.item.title}</Text>
-
-                    </Animatable.View>
 
 
-                </View>
 
+
+                        </ImageBackground>
+                        <Animatable.View
+                            animation='fadeIn'
+                            style={{
+                                alignItems: "center",
+                                justifyContent: 'center',
+                                alignSelf: "center",
+                                padding: 10,
+                                backgroundColor: "#141E46",
+                                borderRadius: 10,
+                                marginTop: 10
+
+                            }}>
+
+
+                            <Text style={[styles.Text, { color: "#fff" }]}>{this.state.item.title}</Text>
+
+                        </Animatable.View>
+
+
+                    </View>
+                </Animatable.View>
             </>
         )
     }

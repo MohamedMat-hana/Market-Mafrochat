@@ -12,6 +12,7 @@ import {
   ImageBackground,
   BackHandler
 } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 import First from './First.js'
 import Elrab from './Elrab.js'
 import Bigmafro from './Bigmafro.js'
@@ -21,7 +22,10 @@ const { width, height } = Dimensions.get('window');
 function Drink() {
   const [activeTab, setActiveTab] = useState("المفروشات الكبيرة")
   return (
-    <View style={{ flex: 1, backgroundColor: '#141E46', }}>
+    <Animatable.View
+      // animation="pulse"
+      duration={1000}
+      style={{ flex: 1, backgroundColor: '#141E46', }}>
       <View style={styles.headerbar}>
         <Text style={styles.textheader}>
           المفروشات
@@ -57,7 +61,7 @@ function Drink() {
         )
         }
       </ScrollView>
-    </View>
+    </Animatable.View>
   );
 }
 const HeaderButton = (props) => (
