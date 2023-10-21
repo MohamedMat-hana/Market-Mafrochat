@@ -60,17 +60,16 @@ export default class Elrab extends React.Component {
         return (
             <>
 
-                <StatusBar
-                    barStyle={'dark-content'}
-                    backgroundColor={"#15133C20"}
-                />
+                <StatusBar barStyle={'dark-content'} backgroundColor={"#FFF5E050"} />
+
                 <Animatable.View
                     animation="fadeInUpBig"
                     duration={2000}
                 >
                     <TouchableOpacity
-                        style={{ 
-                            marginRight: 10 }}
+                        style={{
+                            marginRight: 10
+                        }}
                         onPress={() => {
                             this.props.navigation.goBack();
                         }}

@@ -97,7 +97,7 @@ const Foat = () => {
 
     return (
         <>
-            <StatusBar barStyle={'dark-content'} backgroundColor={"#15133C20"} />
+    <StatusBar barStyle={'light-content'} backgroundColor={"#141E46"} />
             <ScrollView>
                 <View style={styles.header}>
                     <View style={styles.first}>

@@ -22,6 +22,8 @@ const { width, height } = Dimensions.get('window');
 function Drink() {
   const [activeTab, setActiveTab] = useState("الفوط الكبيرة")
   return (
+    <>    
+    <StatusBar barStyle={'light-content'} backgroundColor={"#141E46"} />
     <Animatable.View
       // animation="rubberBand"
       // duration={5000}
@@ -62,6 +64,7 @@ function Drink() {
         }
       </ScrollView>
     </Animatable.View>
+ </>
   );
 }
 const HeaderButton = (props) => (
