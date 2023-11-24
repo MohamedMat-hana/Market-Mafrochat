@@ -14,7 +14,7 @@ import AppIntroSlider from 'react-native-app-intro-slider';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { WelcomeMasssage } from '../../config/helperFunction';
+// import { WelcomeMasssage } from '../../config/helperFunction';
 
 const { width, height } = Dimensions.get('window');
 
@@ -97,8 +97,7 @@ export default class Intro extends React.Component {
       <TouchableOpacity
         style={styles.botton_style}
         onPress={() => {
-          WelcomeMasssage();
-          this.props.navigation.navigate("Drawarnav");
+           this.props.navigation.navigate("Signup");
         }}>
         <Text style={styles.text_style}>تم</Text>
       </TouchableOpacity>
@@ -110,8 +109,7 @@ export default class Intro extends React.Component {
       <TouchableOpacity
         style={styles.botton_style}
         onPress={() => {
-          WelcomeMasssage();
-          this.props.navigation.navigate("Drawarnav");
+           this.props.navigation.navigate("Signup");
         }}>
         <Text style={styles.text_style}>تخطي</Text>
       </TouchableOpacity>

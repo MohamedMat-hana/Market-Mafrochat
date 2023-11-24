@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { COLORS,RADIUS,MARGIN,FONTS } from '../customs/Constant';
 
 const { width, height } = Dimensions.get('window');
 
@@ -18,19 +19,19 @@ const contactMethods = [
   {
     name: 'Phone',
     icon: 'phone',
-    color: '#16294e',
+    color: COLORS.phone,
     link: 'tel:+201096526436',
   },
   {
     name: 'Facebook',
     icon: 'facebook',
-    color: '#28346f',
+    color: COLORS.facebook,
     link: 'https://www.facebook.com/profile.php?id=100090134973009&mibextid=LQQJ4d',
   },
   {
     name: 'WhatsApp',
     icon: 'whatsapp',
-    color: '#0e8623',
+    color: COLORS.whatsapp,
     link: 'https://api.whatsapp.com/send?phone=201096526436',
   },
 ];
@@ -44,17 +45,21 @@ export default class Contactus extends React.Component {
   render() {
     return (
       <>
-        <StatusBar barStyle={'light-content'} backgroundColor={'#141E46'} />
+        <StatusBar barStyle={'light-content'} backgroundColor={COLORS.main} />
 
-        <Animatable.View style={styles.header}>
+        <View style={styles.header}>
           <View style={styles.ViewText}>
-            <Text style={styles.Text}>تواصل معنا</Text>
+            <Animatable.Text
+              animation="fadeIn"
+              duration={5000}
+              style={styles.Text}>تواصل معنا</Animatable.Text>
           </View>
           {contactMethods.map((method, index) => (
             <Animatable.View
-              key={index}
               animation="fadeIn"
               duration={5000}
+
+              key={index}
               style={styles.first}
             >
               <TouchableOpacity onPress={() => Linking.openURL(method.link)}>
@@ -63,7 +68,7 @@ export default class Contactus extends React.Component {
             </Animatable.View>
           ))}
           <View></View>
-        </Animatable.View>
+        </View>
       </>
     );
   }
@@ -72,7 +77,7 @@ export default class Contactus extends React.Component {
 const styles = StyleSheet.create({
   header: {
     flex: 1,
-    backgroundColor: '#141E46',
+    backgroundColor: COLORS.main,
     alignItems: 'center',
     justifyContent: 'space-evenly',
   },
@@ -82,13 +87,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 7,
+    backgroundColor: COLORS.white,
+    borderRadius: RADIUS.xxsRadius,
   },
   ViewText: {},
   Text: {
-    color: '#FFF',
-    fontSize: 25,
+    color: COLORS.white,
+    fontSize: FONTS.h2,
     alignSelf: 'center',
     fontFamily: 'ReemKufiFun-Bold',
   },

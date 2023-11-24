@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { WebView } from 'react-native-webview';
 import * as Animatable from 'react-native-animatable';
+import { COLORS,RADIUS,MARGIN,FONTS } from '../customs/Constant';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import AppIntroSlider from 'react-native-app-intro-slider';
@@ -64,18 +65,18 @@ export default class Elrab extends React.Component {
 
                 <Animatable.View
                     animation="fadeInUpBig"
-                    duration={2000}
+                    duration={4000}
                 >
                     <TouchableOpacity
                         style={{
-                            marginRight: 10
+                            marginRight: MARGIN.xsMargin
                         }}
                         onPress={() => {
                             this.props.navigation.goBack();
                         }}
 
                     >
-                        <AntDesign name='arrowleft' size={30} color="#141E46" />
+                        <AntDesign name='arrowleft' size={30} color={COLORS.main} />
                     </TouchableOpacity>
                     <View
 
@@ -88,10 +89,10 @@ export default class Elrab extends React.Component {
                             borderRadius: 5
 
                         }}>
-                        <ImageBackground source={this.state.item.image}
+                        <ImageBackground source={{uri:this.state.item.avatar}}
                             resizeMode='contain'
                             style={{
-                                height: height / 2,
+                                height: height / 2.5,
                                 width: width / 1,
                                 alignSelf: "center",
                                 justifyContent: "center"
@@ -110,14 +111,15 @@ export default class Elrab extends React.Component {
                                 justifyContent: 'center',
                                 alignSelf: "center",
                                 padding: 10,
-                                backgroundColor: "#141E46",
+                                backgroundColor: COLORS.main,
                                 borderRadius: 10,
                                 marginTop: 10
 
                             }}>
 
 
-                            <Text style={[styles.Text, { color: "#fff" }]}>{this.state.item.title}</Text>
+                            <Text style={[styles.Text, { color: "#fff" }]}>
+                                {this.state.item.name}</Text>
 
                         </Animatable.View>
 

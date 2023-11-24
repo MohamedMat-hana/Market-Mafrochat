@@ -6,13 +6,15 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Second from './Second';
 import Contactus from './Contactus';
 import Secondnav from './Secondnav';
+import { COLORS,RADIUS,MARGIN,FONTS } from '../customs/Constant';
+// import { WelcomeMasssage } from '../../config/helperFunction';
 
 const Tab = createMaterialBottomTabNavigator();
 
 const Drawarnav = () => {
   return (
     <Tab.Navigator
-      activeColor="#141E46"
+      activeColor={COLORS.main}
       inactiveColor="#7D7C7C"
       barStyle={{
         position: 'absolute',
@@ -25,7 +27,7 @@ const Drawarnav = () => {
         name="Secondnav"
         component={Secondnav}
         options={{
-          tabBarLabel: 'المفروشات',
+           tabBarLabel: 'المفروشات',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="bed-king" color={color} size={26} />
           ),
