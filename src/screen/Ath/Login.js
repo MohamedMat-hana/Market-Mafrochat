@@ -42,9 +42,7 @@ const Login = ({ navigation }) => {
     const signup = value => {
         let error = 0;
         // admin enter
-        if (email == "admin" && password == "admin") {
-            navigation.navigate('AdminPage')
-        }
+       
         //email
 
         if (email == '') {
@@ -93,7 +91,10 @@ const Login = ({ navigation }) => {
                     password,
                 }
             );
-            if (response && response.data) {
+            if (email == "Mdrigllll@gmail.com" && password == "Tyuiihyy6$") {
+                navigation.navigate('AdminPage'); 
+             }
+             else if (response && response.data) {
                 Alert.alert('Sign Up Successful', response.data.users);
                 navigation.navigate('Drawarnav');
             } else {
@@ -104,7 +105,7 @@ const Login = ({ navigation }) => {
             const errorMessage =
                 error.response.data.message || 'Sign-up failed. Please try again.';
 
-            Alert.alert('Error', errorMessage);
+            console.log('Error', errorMessage);
         }
     };
 

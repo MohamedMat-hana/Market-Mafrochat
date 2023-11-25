@@ -26,7 +26,7 @@ const SignUp = ({ navigation }) => {
   const [password, setPassword] = useState('');
   const [PassError, setPassError] = useState('');
 
-  const [role, setRole] = useState('user');
+  const [role, setRole] = useState('admin');
   const [secureTextEntry, setsecureTextEntry] = useState(true);
 
   const validateEmail = email => {
@@ -55,7 +55,7 @@ const SignUp = ({ navigation }) => {
   const signup = value => {
     let error = 0;
     //name
-
+    
     if (firstName.trim() == '') {
       error++;
       setFirstNameerror('يرجى ادخال الاسم الأول');
@@ -125,7 +125,10 @@ const SignUp = ({ navigation }) => {
           role: "admin",
         }
       );
-      if (response && response.data) {
+      if (role == "admin" ) {
+        navigation.navigate('AdminPage'); 
+     }
+      else if (response && response.data) {
         Alert.alert('Sign Up Successful', response.data.users);
         navigation.navigate('Drawarnav');
       } else {
