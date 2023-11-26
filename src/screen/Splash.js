@@ -27,6 +27,12 @@ export default class Splash extends React.Component {
         //   this.setState({ count: 0 })
         this.props.navigation.navigate("Drawarnav")
 
+      }
+      if (coun == 2) {
+        //   await AsyncStorage.setItem('login',null)
+        //   this.setState({ count: 0 })
+        this.props.navigation.navigate("AdminPage")
+
       } else {
         //   this.setState({ count: coun })
         this.props.navigation.navigate("Intro")

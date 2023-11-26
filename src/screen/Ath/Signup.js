@@ -122,24 +122,24 @@ const SignUp = ({ navigation }) => {
           lastName,
           email,
           password,
-          role: "admin",
+          role: "user",
         }
       );
-      if (role == "admin" ) {
-        navigation.navigate('AdminPage'); 
-     }
-      else if (response && response.data) {
-        Alert.alert('Sign Up Successful', response.data.users);
+    //   if (role == "admin" ) {
+    //     navigation.navigate('AdminPage'); 
+    //  }
+      if (response && response.data) {
+        console.log('Sign Up Successful', response.data.users);
         navigation.navigate('Drawarnav');
       } else {
-        Alert.alert('Error=', 'Sign-up failed. Please try again.');
+        console.log('Error=', 'Sign-up failed. Please try again.');
       }
     } catch (error) {
       
       const errorMessage =
         error.response.data.message || 'Sign-up failed. Please try again.';
 
-      Alert.alert('Error', errorMessage);
+        console.log('Error', errorMessage);
     }
   };
 
@@ -341,7 +341,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 15,
     fontFamily: FONTSFAMILY.Generator_Black,
-
+    textDecorationLine:"underline"
   },
 
 });

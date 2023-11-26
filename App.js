@@ -18,18 +18,18 @@ function App({ navigation }) {
     //  <Signup />
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen name="Splash" component={Splash}
+        <Stack.Screen name="Splash" component={Splash}
           options={{ headerShown: false }} />
         <Stack.Screen name="Intro" component={Intro}
           options={{ headerShown: false }} />
         <Stack.Screen name="Signup" component={Signup}
           options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={Login}
-          options={{ headerShown: false }} /> */}
+          options={{ headerShown: false }} />
           <Stack.Screen name="AdminPage" component={AdminPage}
           options={{ headerShown: false }} />
-        {/* <Stack.Screen name="Drawarnav" component={Drawarnav}
-          options={{ headerShown: false }} /> */}
+        <Stack.Screen name="Drawarnav" component={Drawarnav}
+          options={{ headerShown: false }} />
 
       </Stack.Navigator>
     </NavigationContainer>

@@ -91,14 +91,14 @@ const Login = ({ navigation }) => {
                     password,
                 }
             );
-            if (email == "Mdrigllll@gmail.com" && password == "Tyuiihyy6$") {
+            if (email == "admin@gmail.com" && password == "Admin1&Admin") {
                 navigation.navigate('AdminPage'); 
              }
              else if (response && response.data) {
-                Alert.alert('Sign Up Successful', response.data.users);
+                console.log('Sign Up Successful', response.data.users);
                 navigation.navigate('Drawarnav');
             } else {
-                Alert.alert('Error=', 'Sign-up failed. Please try again.');
+                console.log('Error=', 'Sign-up failed. Please try again.');
             }
         } catch (error) {
             // Alert.alert('حدث خطأ اثناء الاتصال بالخادم من فضلك حاول مجددا')
@@ -294,6 +294,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 15,
         fontFamily: FONTSFAMILY.Generator_Black,
+        textDecorationLine:"underline"
 
     },
 });
