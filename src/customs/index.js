@@ -5,7 +5,7 @@ import {
     FONTS,
     RADIUS,
     ICONS,
-    IconsView,
+    FONTSFAMILY,
   } from './Constant';
-  export {COLORS, PADDING, MARGIN, FONTS, RADIUS, ICONS, IconsView};
+  export {COLORS, PADDING, MARGIN, FONTS, RADIUS, ICONS, FONTSFAMILY};
   

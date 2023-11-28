@@ -14,6 +14,7 @@ import axios from 'axios';
 import LottieView from 'lottie-react-native';
 import Entypo from 'react-native-vector-icons/Entypo'
 const { width, height } = Dimensions.get('window');
+import { WelcomeMasssage } from '../../../config/helperFunction';
 
 const Login = ({ navigation }) => {
     const animationRef = useRef(null);
@@ -34,7 +35,7 @@ const Login = ({ navigation }) => {
     };
 
     const validatePassword = password => {
-        var pass = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
+        var pass = /^(?=.*\d)(?=.*)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
         return pass.test(password);
     };
 
@@ -42,7 +43,7 @@ const Login = ({ navigation }) => {
     const signup = value => {
         let error = 0;
         // admin enter
-       
+
         //email
 
         if (email == '') {
@@ -92,9 +93,11 @@ const Login = ({ navigation }) => {
                 }
             );
             if (email == "admin@gmail.com" && password == "Admin1&Admin") {
-                navigation.navigate('AdminPage'); 
-             }
-             else if (response && response.data) {
+                navigation.navigate('Choose_page');
+            }
+            else if (response && response.data) {
+                WelcomeMasssage(),
+
                 console.log('Sign Up Successful', response.data.users);
                 navigation.navigate('Drawarnav');
             } else {
@@ -102,10 +105,11 @@ const Login = ({ navigation }) => {
             }
         } catch (error) {
             // Alert.alert('حدث خطأ اثناء الاتصال بالخادم من فضلك حاول مجددا')
+
             const errorMessage =
                 error.response.data.message || 'Sign-up failed. Please try again.';
 
-            console.log('Error', errorMessage);
+            Alert.alert('خطأ', "البيانات غير صحيحة");
         }
     };
 
@@ -155,6 +159,7 @@ const Login = ({ navigation }) => {
                         </View>
                     )}
                     <TouchableOpacity style={styles.button} onPress={() => {
+
                         signup()
                     }}>
                         <Text style={styles.buttonText}>دخول</Text>
@@ -294,7 +299,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 15,
         fontFamily: FONTSFAMILY.Generator_Black,
-        textDecorationLine:"underline"
+        textDecorationLine: "underline"
 
     },
 });

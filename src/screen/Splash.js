@@ -20,7 +20,7 @@ export default class Splash extends React.Component {
   }
   async get_Count() {
     let coun = await AsyncStorage.getItem("login")
-
+console.log(coun);
     setTimeout(() => {
       if (coun == 1) {
         //   await AsyncStorage.setItem('login',null)
@@ -28,17 +28,17 @@ export default class Splash extends React.Component {
         this.props.navigation.navigate("Drawarnav")
 
       }
-      if (coun == 2) {
+      else if (coun == 2) {
         //   await AsyncStorage.setItem('login',null)
         //   this.setState({ count: 0 })
-        this.props.navigation.navigate("AdminPage")
+        this.props.navigation.navigate("Choose_page")
 
       } else {
         //   this.setState({ count: coun })
         this.props.navigation.navigate("Intro")
 
       }
-    }, 10000)
+    }, 9000)
   }
   render() {
     return (

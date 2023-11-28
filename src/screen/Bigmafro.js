@@ -14,6 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 import { BackHandler } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { COLORS, RADIUS, MARGIN, FONTS } from '../customs/Constant';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const { width, height } = Dimensions.get('window');
 
@@ -21,6 +22,10 @@ const Bigmafro = () => {
   const navigation = useNavigation();
   const [isLoading, setIsLoading] = useState(true);
   const [dataSource, setDataSource] = useState(null);
+  const store_Count = async () => {
+    await AsyncStorage.setItem("login", '1')
+    console.log("login=1");
+}
 
   const backAction = useCallback(() => {
     BackHandler.exitApp();
@@ -55,6 +60,7 @@ const Bigmafro = () => {
         key={index}
         style={styles.button}
         onPress={() => {
+          store_Count(),
           navigation.navigate("Elrab", {
             name: item,
           });

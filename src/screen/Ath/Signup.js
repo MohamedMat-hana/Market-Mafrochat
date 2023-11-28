@@ -14,6 +14,7 @@ import axios from 'axios';
 import LottieView from 'lottie-react-native';
 import Entypo from 'react-native-vector-icons/Entypo'
 const { width, height } = Dimensions.get('window');
+import { WelcomeMasssage } from '../../../config/helperFunction';
 
 const SignUp = ({ navigation }) => {
   const animationRef = useRef(null);
@@ -39,15 +40,15 @@ const SignUp = ({ navigation }) => {
   };
 
   const validatePassword = password => {
-    var pass = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
+    var pass = /^(?=.*\d)(?=.*)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
     return pass.test(password);
   };
   const validateName = firstName => {
-    const re = /^([a-zA-Z0-9\s_\u0600-\u06FF]).{5,30}$/;
+    const re = /^([a-zA-Z0-9\s_\u0600-\u06FF]).{1,30}$/;
     return re.test(String(firstName).toLowerCase());
   };
   const validatelastName = lastName => {
-    const re = /^([a-zA-Z0-9\s_\u0600-\u06FF]).{5,30}$/;
+    const re = /^([a-zA-Z0-9\s_\u0600-\u06FF]).{1,30}$/;
     return re.test(String(lastName).toLowerCase());
   };
 
@@ -55,13 +56,10 @@ const SignUp = ({ navigation }) => {
   const signup = value => {
     let error = 0;
     //name
-    
+
     if (firstName.trim() == '') {
       error++;
       setFirstNameerror('يرجى ادخال الاسم الأول');
-     } else if (!validateName(firstName)) {
-      error++;
-      setFirstNameerror('يرجى ادخال اسم صحيح ');
     } else {
       setFirstNameerror('');
     }
@@ -69,11 +67,8 @@ const SignUp = ({ navigation }) => {
     if (lastName.trim() == '') {
       error++;
       setlastNameerror('يرجى ادخال الاسم الأخير  ');
-    } else if (!validatelastName(lastName)) {
-      error++;
-      setlastNameerror('يرجى ادخال اسم صحيح ');
     } else {
-      setFirstNameerror('');
+      setlastNameerror('');
     }
 
 
@@ -98,12 +93,12 @@ const SignUp = ({ navigation }) => {
     } else if (!validatePassword(password)) {
       error++;
       setPassError(
-        'كلمه المرور يجب لا تقل عن 6 ارقام و حرف كبير و حرف صغير وعلامه مميزه',
+        'كلمه المرور يجب لا تقل عن 6 ارقام و حرف كبير و حرف صغير  ',
       );
     } else {
       setPassError('');
     }
- 
+
     if (error == 0) {
       console.log(error)
       handleSignUp()
@@ -112,7 +107,7 @@ const SignUp = ({ navigation }) => {
       console.log(error)
     }
   }
- 
+
   const handleSignUp = async () => {
     try {
       const response = await axios.post(
@@ -125,21 +120,23 @@ const SignUp = ({ navigation }) => {
           role: "user",
         }
       );
-    //   if (role == "admin" ) {
-    //     navigation.navigate('AdminPage'); 
-    //  }
+      //   if (role == "admin" ) {
+      //     navigation.navigate('AdminPage'); 
+      //  }
       if (response && response.data) {
+        WelcomeMasssage(),
+
         console.log('Sign Up Successful', response.data.users);
         navigation.navigate('Drawarnav');
       } else {
         console.log('Error=', 'Sign-up failed. Please try again.');
       }
     } catch (error) {
-      
+
       const errorMessage =
         error.response.data.message || 'Sign-up failed. Please try again.';
 
-        console.log('Error', errorMessage);
+      console.log('Error', errorMessage);
     }
   };
 
@@ -157,23 +154,23 @@ const SignUp = ({ navigation }) => {
             speed={1}
             style={{ width: width, height: height / 3 }}
           />
-          {renderInput('الاسم الأول', firstName, setFirstName )}
-          {FirstNameerror==""?(null):(
-          <View style={styles.ErrorView}>
-            <Text style={styles.TextErorr}>{FirstNameerror}</Text>
-          </View>
+          {renderInput('الاسم الأول', firstName, setFirstName)}
+          {FirstNameerror == "" ? (null) : (
+            <View style={styles.ErrorView}>
+              <Text style={styles.TextErorr}>{FirstNameerror}</Text>
+            </View>
           )}
           {renderInput('الاسم الاخير', lastName, setLastName)}
-          {lastNameerror==""?(null):(
-          <View style={styles.ErrorView}>
-            <Text style={styles.TextErorr}>{lastNameerror}</Text>
-          </View>
+          {lastNameerror == "" ? (null) : (
+            <View style={styles.ErrorView}>
+              <Text style={styles.TextErorr}>{lastNameerror}</Text>
+            </View>
           )}
-          {renderInput('البريد الالكتروني', email, setEmail )}
-          {EmailError==""?(null):(
-          <View style={styles.ErrorView}>
-            <Text style={styles.TextErorr}>{EmailError}</Text>
-          </View>
+          {renderInput('البريد الالكتروني', email, setEmail)}
+          {EmailError == "" ? (null) : (
+            <View style={styles.ErrorView}>
+              <Text style={styles.TextErorr}>{EmailError}</Text>
+            </View>
           )}
           <View style={styles.viewinputsec}>
             <TextInput
@@ -184,7 +181,7 @@ const SignUp = ({ navigation }) => {
               value={password}
               secureTextEntry={secureTextEntry ? true : false}
             ></TextInput>
-           
+
             <TouchableOpacity onPress={() => {
               if (secureTextEntry == true) {
                 setsecureTextEntry(false)
@@ -196,35 +193,36 @@ const SignUp = ({ navigation }) => {
               <Entypo name={secureTextEntry ? "eye-with-line" : "eye"} color={COLORS.gray} size={23} />
             </TouchableOpacity>
           </View>
-            {PassError==""?(null):(
-          <View style={styles.ErrorView}>
-            <Text style={styles.TextErorr}>{PassError}</Text>
-          </View>
+          {PassError == "" ? (null) : (
+            <View style={styles.ErrorView}>
+              <Text style={styles.TextErorr}>{PassError}</Text>
+            </View>
           )}
-          <TouchableOpacity style={styles.button} onPress={()=>{
+          <TouchableOpacity style={styles.button} onPress={() => {
             signup()
           }}>
             <Text style={styles.buttonText}>تسجيل</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button1} onPress={()=>{
+          <TouchableOpacity style={styles.button1} onPress={() => {
             navigation.navigate('Login');
           }}>
             <Text style={styles.buttonText1}>هل لديك حساب؟ تسجيل دخول</Text>
           </TouchableOpacity>
         </View>
+        <View style={{ height: 30 }}></View>
       </ScrollView>
     </View>
   );
 };
 
-const renderInput = (placeholder, value, setValue,  ) => (
+const renderInput = (placeholder, value, setValue,) => (
   <TextInput
     style={styles.input}
     placeholder={placeholder}
     placeholderTextColor={COLORS.gray}
     onChangeText={(text) => setValue(text)}
     value={value}
-   />
+  />
 );
 
 const styles = StyleSheet.create({
@@ -306,7 +304,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     // alignSelf: "center"
 
-},
+  },
   button: {
     width: width / 1.5,
     height: height / 13,
@@ -325,7 +323,7 @@ const styles = StyleSheet.create({
     fontFamily: FONTSFAMILY.Main,
 
   },
-  button1:{
+  button1: {
     width: width / 1.5,
     // height: height / 13,
     // backgroundColor: COLORS.facebook,
@@ -341,7 +339,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 15,
     fontFamily: FONTSFAMILY.Generator_Black,
-    textDecorationLine:"underline"
+    textDecorationLine: "underline"
   },
 
 });

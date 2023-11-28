@@ -22,14 +22,14 @@ import Entypo from 'react-native-vector-icons/Entypo'
 
 
 const Drink = ({ navigation }) => {
-  store_Count = async () => {
+  const store_Count = async () => {
     await AsyncStorage.setItem("login", '1')
-    // this.props.navigation.navigate("Liberarylogorsing")
-
-  }
+    console.log("login=1");
+}
   Log_Out = async () => {
     await AsyncStorage.setItem("login", "0")
     navigation.navigate("Login")
+    console.log("login=0");
 
   }
 
@@ -48,6 +48,7 @@ const Drink = ({ navigation }) => {
         <View style={styles.headerbar}>
           <TouchableOpacity
             onPress={() => {
+              store_Count(),
               setmodel_alert(true)
             }}>
             <Entypo name="cog" size={22} color={COLORS.white} />
@@ -67,11 +68,14 @@ const Drink = ({ navigation }) => {
 
           }}>
             <HeaderButton
+
+v
               text="المفروشات الكبيرة"
               btnColor="#000"
               textColor="#fff"
               activeTab={activeTab}
-              setActiveTab={setActiveTab} />
+              setActiveTab={setActiveTab} 
+             />
             <HeaderButton
               text="المفروشات الصغيره"
               btnColor="#fff"
@@ -182,8 +186,7 @@ const HeaderButton = (props) => (
       borderRadius: 25,
       marginHorizontal: 5
     }}
-      onPress={() => {
-        this.store_Count(),
+      onPress={() => { 
           props.setActiveTab(props.text)
       }}>
       <Text

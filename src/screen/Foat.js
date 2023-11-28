@@ -1,188 +1,3 @@
-// import React from 'react';
-// import {
-//     Text,
-//     View,
-//     StyleSheet,
-//     TouchableOpacity,
-//     Image,
-//     StatusBar,
-//     ScrollView,
-//     Dimensions,
-// } from 'react-native';
-// import { useNavigation } from '@react-navigation/native';
-// import * as Animatable from 'react-native-animatable';
-
-// const { width, height } = Dimensions.get('window');
-
-// const Foat = () => {
-//     const navigation = useNavigation();
-
-//     const map = [
-//         {
-//             title: "1 فوطه قطن",
-//             image: require('../Img/bed5.jpg'),
-//         },
-//         {
-//             title: "1فوطه",
-//             image: require('../Img/bed6.jpg'),
-//         },
-//         {
-//             title: "1فوطه",
-//             image: require('../Img/bed7.jpg'),
-//         },
-//         {
-//             title: "1فوطه",
-//             image: require('../Img/bed8.jpg'),
-//         },
-//         {
-//             title: "1فوطه",
-//             image: require('../Img/bed9.jpg'),
-//         },
-//         {
-//             title: "1فوطه",
-//             image: require('../Img/bed10.jpg'),
-//         },
-//         {
-//             title: "1 فوطه قطن",
-//             image: require('../Img/bed5.jpg'),
-//         },
-//         {
-//             title: "1فوطه",
-//             image: require('../Img/bed6.jpg'),
-//         },
-//         {
-//             title: "1فوطه",
-//             image: require('../Img/bed7.jpg'),
-//         },
-//         {
-//             title: "1فوطه",
-//             image: require('../Img/bed8.jpg'),
-//         },
-//         {
-//             title: "1فوطه",
-//             image: require('../Img/bed9.jpg'),
-//         },
-//         {
-//             title: "1فوطه",
-//             image: require('../Img/bed10.jpg'),
-//         }, {
-//             title: "1 فوطه قطن",
-//             image: require('../Img/bed5.jpg'),
-//         },
-//         {
-//             title: "1فوطه",
-//             image: require('../Img/bed6.jpg'),
-//         },
-//         {
-//             title: "1فوطه",
-//             image: require('../Img/bed7.jpg'),
-//         },
-//         {
-//             title: "1فوطه",
-//             image: require('../Img/bed8.jpg'),
-//         },
-//         {
-//             title: "1فوطه",
-//             image: require('../Img/bed9.jpg'),
-//         },
-//         {
-//             title: "1فوطه",
-//             image: require('../Img/bed10.jpg'),
-//         },
-//         {
-//             title: "1فوطه",
-//             image: require('../Img/bed10.jpg'),
-//         },
-//     ];
-
-//     return (
-//         <>
-//     <StatusBar barStyle={'light-content'} backgroundColor={"#141E46"} />
-//             <ScrollView>
-//                 <View style={styles.header}>
-//                     <View style={styles.first}>
-//                         <View
-//                             animation="tada"
-//                             duration={4000}
-//                             style={{
-//                                 flexDirection: "row",
-//                                 flexWrap: "wrap",
-//                                 alignItems: "center",
-//                                 alignSelf: "center",
-//                                 justifyContent: "center",
-//                             }}
-//                         >
-//                             {map.map((item, index) => (
-//                                 <TouchableOpacity
-//                                     onPress={() => {
-//                                         navigation.navigate("elrab", {
-//                                             name: item,
-//                                         });
-//                                     }}
-//                                     style={styles.Button}
-//                                     key={index}
-//                                 >
-//                                     <Image
-//                                         // animation="bounceIn"
-//                                         // duration={6000}
-//                                         source={item.image}
-//                                         style={styles.image}
-//                                     />
-//                                     <Text style={styles.Text}>{item.title}</Text>
-//                                 </TouchableOpacity>
-//                             ))}
-//                         </View>
-//                     </View>
-//                     <View style={{ height: 80 }}></View>
-
-//                 </View>
-//             </ScrollView>
-
-//         </>
-//     );
-// };
-
-// const styles = StyleSheet.create({
-//     header: {
-//         flex: 1,
-//         backgroundColor: "#15133C20",
-//     },
-//     first: {
-//         width: width,
-//         // height: height,
-//         flexDirection: 'row',
-//         justifyContent: 'center',
-//         flexWrap: "wrap",
-//         alignItems: 'center',
-//         alignSelf: "center",
-//         backgroundColor: "#141E46",
-//     },
-//     Button: {
-//         width: width / 2.4,
-//         height: height / 5,
-//         padding: 0,
-//         borderRadius: 7,
-//         margin: 10,
-//         alignItems: "center",
-//         justifyContent: 'center',
-//         backgroundColor: "#fff",
-//     },
-//     image: {
-//         resizeMode: 'contain',
-//         height: "60%",
-//         alignItems: "center",
-//         justifyContent: "center",
-//     },
-//     Text: {
-//         marginTop: 10,
-//         color: "#141E46",
-//         fontSize: 18,
-//         alignSelf: "center",
-//         fontFamily: "Generator Black",
-//     },
-// });
-
-// export default Foat;
 import React, { useState, useEffect, useCallback } from 'react';
 import {
   Text,
@@ -199,6 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 import { BackHandler } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { COLORS, RADIUS, MARGIN, FONTS } from '../customs/Constant';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const { width, height } = Dimensions.get('window');
 
@@ -206,6 +22,10 @@ const Foat = () => {
   const navigation = useNavigation();
   const [isLoading, setIsLoading] = useState(true);
   const [dataSource, setDataSource] = useState(null);
+  const store_Count = async () => {
+    await AsyncStorage.setItem("login", '1')
+    console.log("login=1");
+}
 
   const backAction = useCallback(() => {
     BackHandler.exitApp();
@@ -240,6 +60,7 @@ const Foat = () => {
         key={index}
         style={styles.button}
         onPress={() => {
+          store_Count(),
           navigation.navigate("Elrab", {
             name: item,
           });

@@ -9,13 +9,17 @@ import Login from './src/screen/Ath/Login.js'
 import { Image } from 'react-native'
 import AdminPage from './src/screen/AdminPage.js'
 import Bigmafro from './src/screen/Bigmafro.js'
+import AdminPageSmallMafro from './src/screen/AdminPageSmallMafro.js'
+import AdminPageSmallFoat from './src/screen/AdminPageSmallFoat.js'
+import AdminPageBigFoat from './src/screen/AdminPageBigFoat.js'
+import Choose_page from './src/screen/Choose_page.js'
 
 import 'react-native-gesture-handler';
 const Stack = createNativeStackNavigator();
 
 function App({ navigation }) {
   return (
-    //  <Signup />
+    //  <Choose_page />
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Splash" component={Splash}
@@ -28,7 +32,16 @@ function App({ navigation }) {
           options={{ headerShown: false }} />
           <Stack.Screen name="AdminPage" component={AdminPage}
           options={{ headerShown: false }} />
+           <Stack.Screen name="AdminPageSmallMafro" component={AdminPageSmallMafro}
+          options={{ headerShown: false }} />
+            <Stack.Screen name="AdminPageSmallFoat" component={AdminPageSmallFoat}
+          options={{ headerShown: false }} />
+           <Stack.Screen name="AdminPageBigFoat" component={AdminPageBigFoat}
+          options={{ headerShown: false }} />
+          {/* AdminPageBigFoat */}
         <Stack.Screen name="Drawarnav" component={Drawarnav}
+          options={{ headerShown: false }} />
+ <Stack.Screen name="Choose_page" component={Choose_page}
           options={{ headerShown: false }} />
 
       </Stack.Navigator>

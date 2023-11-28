@@ -29,7 +29,7 @@ import LottieView from 'lottie-react-native';
 
 import ImagePicker from 'react-native-image-crop-picker';
 import { removeMasssage } from '../../config/helperFunction';
-const AdminPage = ({ navigation }) => {
+const AdminPageBigFoat = ({ navigation }) => {
   const animationRef = useRef(null);
 
   const [photoBase64, setPhotoBase64] = useState(null);
@@ -116,7 +116,7 @@ const AdminPage = ({ navigation }) => {
     }
     RNFetchBlob.fetch(
       'POST',
-      `https://market-app-server.onrender.com/api/data`,
+      `https://market-app-server.onrender.com/api/BigFoat`,
       {
         Authorization: 'Bearer access-token',
         otherHeader: 'foo',
@@ -188,7 +188,7 @@ const AdminPage = ({ navigation }) => {
               >
                   <LottieView
                         ref={animationRef}
-                        source={require('../../src/lottie/home.json')} // Replace with your animation file
+                        source={require('../lottie/home.json')} // Replace with your animation file
                         autoPlay={true}
                         loop={true}
                         speed={0.5}
@@ -274,7 +274,7 @@ const Add = () => {
   const [posts, setPosts] = useState({});
 
   useEffect(() => {
-    fetch("https://market-app-server.onrender.com/api/data")
+    fetch("https://market-app-server.onrender.com/api/BigFoat")
       .then((response) => response.json())
       .then((responseJson) => {
         setIsLoading(false);
@@ -288,7 +288,7 @@ const Add = () => {
   const DeleteData = (id, e) => {
     console.log("Deleting data with id:", id);
 
-    axios.delete(`https://market-app-server.onrender.com/api/data/${id}`, {
+    axios.delete(`https://market-app-server.onrender.com/api/BigFoat/${id}`, {
       headers: {
         Accept: "application/json",
       },
@@ -519,6 +519,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AdminPage;
+export default AdminPageBigFoat;
 
 // SmallMaphro

@@ -7,5 +7,14 @@ export const WelcomeMasssage=()=>{
 
     )
 }
+export const removeMasssage=()=>{
+    return ToastAndroid.show(
+        "تم الحذف بنجاح",
+        ToastAndroid.SHORT,
+        ToastAndroid.BOTTOM,
 
+    )
+}
+
+ 
 

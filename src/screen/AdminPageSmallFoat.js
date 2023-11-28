@@ -29,7 +29,7 @@ import LottieView from 'lottie-react-native';
 
 import ImagePicker from 'react-native-image-crop-picker';
 import { removeMasssage } from '../../config/helperFunction';
-const AdminPage = ({ navigation }) => {
+const AdminPageSmallFoat = ({ navigation }) => {
   const animationRef = useRef(null);
 
   const [photoBase64, setPhotoBase64] = useState(null);
@@ -116,7 +116,7 @@ const AdminPage = ({ navigation }) => {
     }
     RNFetchBlob.fetch(
       'POST',
-      `https://market-app-server.onrender.com/api/data`,
+      `https://market-app-server.onrender.com/api/SmallFoat`,
       {
         Authorization: 'Bearer access-token',
         otherHeader: 'foo',
@@ -274,7 +274,7 @@ const Add = () => {
   const [posts, setPosts] = useState({});
 
   useEffect(() => {
-    fetch("https://market-app-server.onrender.com/api/data")
+    fetch("https://market-app-server.onrender.com/api/SmallFoat")
       .then((response) => response.json())
       .then((responseJson) => {
         setIsLoading(false);
@@ -288,7 +288,7 @@ const Add = () => {
   const DeleteData = (id, e) => {
     console.log("Deleting data with id:", id);
 
-    axios.delete(`https://market-app-server.onrender.com/api/data/${id}`, {
+    axios.delete(`https://market-app-server.onrender.com/api/SmallFoat/${id}`, {
       headers: {
         Accept: "application/json",
       },
@@ -323,7 +323,7 @@ const Add = () => {
         }}>
           <TouchableOpacity onPress={(e) =>{
              removeMasssage(),
-             DeleteData(item._id, e)}}>
+              DeleteData(item._id, e)}}>
             
             <MaterialCommunityIcons name="trash-can" color={COLORS.main} size={25} />
 
@@ -519,6 +519,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AdminPage;
+export default AdminPageSmallFoat;
 
 // SmallMaphro
